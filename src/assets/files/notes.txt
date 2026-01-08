@@ -1,0 +1,3 @@
+I need lots of images, like the hero image and the favicon. I kept the fonts as Raleway + Space Grotesk. 
+Navbar is NOT sticky, I could make it sticky upon request. 
+There's no clear CTA, so I'll put request a demo like everyone else.

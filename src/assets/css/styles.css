@@ -1,0 +1,108 @@
+/*---------------------------------
+IMPORTS
+---------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+/*---------------------------------
+ROOT VARIABLES
+---------------------------------*/
+:root {
+    --primary: #000000;
+    --secondary: #FF9A00;
+    --tertiary: #FFFFFF;
+    --quaternary: #E88A00;
+    --quinary: #d3d3d3;
+}
+
+/*---------------------------------
+GLOBAL STYLES
+---------------------------------*/
+html {
+	font-size: 16px;
+	position: relative;
+}
+
+main {
+    color: var(--tertiary);
+}
+
+body {
+	overflow-x: hidden;
+	margin: 0 auto;
+    background-color: var(--primary);
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+textarea {
+    resize: none;
+    white-space: pre-wrap;
+}
+
+button {
+    cursor: pointer;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--primary);
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+input:-moz-autofill {
+    background-color: rgba(0, 34, 72, 0.5);
+    color: var(--tertiary);
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+	color: transparent;
+}
+
+h1 {
+	font-family: "Space Grotesk", sans-serif;
+}
+
+a {
+	cursor: pointer;
+    font-family: "Raleway", sans-serif;
+}
+
+.default-btn {
+	display: inline-block;
+	margin-top: 1.25rem;
+	padding: 0.625rem 1.25rem;
+	font-family: "Raleway", sans-serif;
+	background-color: white;
+	color: var(--primary);
+	text-decoration: none;
+	border-radius: 0.3125rem;
+	font-weight: bold;
+	transition: transform 0.3s ease;
+}
+
+.default-btn:hover {
+    transform: scale(1.05);
+}
+
+select:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.special-strong {
+	color: var(--secondary);
+	font-weight: 1000;
+}
