@@ -103,7 +103,7 @@
             font-weight: 500;
             padding: 1rem 1.5rem 1rem 1.75rem;
             border-radius: 0.5rem;
-            background-color: var(--quaternary);
+            background-color: var(--secondary);
             transition: transform 0.3s ease;
         }
 
@@ -247,13 +247,13 @@
         }
 
         .demo-button {
-            background-color: var(--quaternary);
-            border: 2px solid var(--quaternary);
+            background-color: var(--secondary);
+            border: 2px solid var(--secondary);
         }
 
         .dashboard-button {
             background: transparent;
-            border: 2px solid var(--quaternary);
+            border: 2px solid var(--secondary);
             margin-left: 1rem;
         }
 
@@ -306,7 +306,7 @@
             font-weight: 500;
             padding: 1rem 1.5rem 1rem 1.75rem;
             border-radius: 0.5rem;
-            background-color: var(--quaternary);
+            background-color: var(--secondary);
             transition: transform 0.3s ease;
             margin-bottom: 2.25rem;
         }
@@ -386,7 +386,7 @@
             font-weight: 500;
             padding: 1rem 1.5rem 1rem 1.75rem;
             border-radius: 0.5rem;
-            background-color: var(--quaternary);
+            background-color: var(--secondary);
             transition: transform 0.3s ease;
         }
 
@@ -475,8 +475,8 @@
 
         .faq-section {
             max-width: 78.25rem;
-            margin: 11.5rem auto 5rem;
-            padding: 0 2rem;
+            margin: 4.5rem auto 5rem;
+            padding: 7rem 2rem 0;
             display: grid;
             grid-template-columns: 1fr 1.4fr;
             gap: 4rem;
@@ -490,7 +490,7 @@
             font-weight: 500;
             padding: 1rem 1.5rem 1rem 1.75rem;
             border-radius: 0.5rem;
-            background-color: var(--quaternary);
+            background-color: var(--secondary);
             transition: transform 0.3s ease;
             margin-top: 0.75rem;
         }
@@ -685,8 +685,12 @@
 
         @media (max-width: 62.5rem) {
             .hero-container div {
-                top: 50%;
+                top: 44%;
                 left: 50%;
+            }
+
+            .hero-container img {
+                height: calc(100vh - 5.5rem);
             }
 
             .hamburger {
@@ -974,7 +978,7 @@
                 </section>
             </div>
         </div>
-        <div class="faq-section">
+        <div class="faq-section" id="faqs">
             <div class="faq-left">
                 <h1 style="font-size: 3rem; margin: 0; margin-bottom: 1rem;">HaptE FAQs</h1>
                 <p style="font-size: 1.5rem;">Don't see your question on here?</p>
