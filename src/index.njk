@@ -242,6 +242,10 @@
             color: var(--tertiary);
         }
 
+        .hero-container a:hover {
+            transform: scale(1.08);
+        }
+
         .demo-button {
             background-color: var(--quaternary);
             border: 2px solid var(--quaternary);
@@ -251,10 +255,6 @@
             background: transparent;
             border: 2px solid var(--quaternary);
             margin-left: 1rem;
-        }
-
-        .hero-container a:hover {
-            transform: scale(1.08);
         }
 
         .reimagination-section {
@@ -673,6 +673,12 @@
         @media screen and (max-width: 80rem) {
             .footer-divider {
                 height: 0.075rem;
+            }
+        }
+
+        @media (max-width: 62.5rem) {
+            .hero-container div {
+                width: 90%;
             }
         }
 
