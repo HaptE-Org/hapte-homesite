@@ -198,26 +198,33 @@
 
         .hero-container {
             position: relative;
-            width: 100%;
+            background: url("/assets/images/hero.png") center/cover no-repeat;
+            background-position: 50% 40%;
+            min-height: 88.25vh;
+            display: flex;
+            place-items: center;
+            display: flex;
+            padding-bottom: 4rem;
+            justify-content: center;
         }
 
-        .hero-container img {
-            width: 100%;
-            height: calc(100vh - 6rem);
-            object-fit: cover;
-            object-position: 50% 20%;
-        }
-
-        .hero-container div {
+        .hero-container::before {
+            content: "";
             position: absolute;
-            top: 38.5vh;
-            left: calc(10.375rem + 12vw);
-            transform: translate(-50%, -50%);
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-text-parent {
             color: white;
             z-index: 10;
-            max-width: 29rem;
+            max-width: 78.25rem;
             padding: 0 2rem;
             width: 100%;
+        }
+
+        .hero-text-parent div {
+            max-width: 29rem;
         }
 
         .hero-container h1 {
@@ -692,15 +699,6 @@
         }
 
         @media (max-width: 62.5rem) {
-            .hero-container div {
-                top: 44%;
-                left: 50%;
-            }
-
-            .hero-container img {
-                height: calc(100vh - 5.5rem);
-            }
-
             .hamburger {
                 display: flex;
             }
@@ -775,6 +773,10 @@
         }
 
         @media (max-width: 52rem) {
+            .hero-container {
+                background-position: 100% 40%;
+            }
+
             .footer-columns {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -850,12 +852,13 @@
     </body>
     <main>
         <div class="hero-container">
-            <img src="/assets/images/hero.png" alt="Hero image">
-            <div>
-                <h1>Optical Intelligence for Your Warehouse</h1>
-                <h3>Real-time computer vision driving warehouse efficiency by preventing errors before they leave the floor.</h3>
-                <a class="demo-button" href="#contact-us">Get a Demo&nbsp&nbsp&nbsp></a>
-                <a class="dashboard-button" href="#meet-hapte">Learn More&nbsp&nbsp&nbsp></a>
+            <div class="hero-text-parent">
+                <div>
+                    <h1>Optical Intelligence for Your Warehouse</h1>
+                    <h3>Real-time computer vision driving warehouse efficiency by preventing errors before they leave the floor.</h3>
+                    <a class="demo-button" href="#contact-us">Get a Demo&nbsp&nbsp&nbsp></a>
+                    <a class="dashboard-button" href="#meet-hapte">Learn More&nbsp&nbsp&nbsp></a>
+                </div>
             </div>
         </div>
         <div class="reimagination-section">
