@@ -33,10 +33,10 @@
             }
         </script>
         <!-- Scripts -->
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha384-i61gTtaoovXtAbKjo903+O55Jkn2+RtzHtvNez+yI49HAASvznhe9sZyjaSHTau9" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="https://unpkg.com/@rive-app/canvas@1.0.102"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha384-i61gTtaoovXtAbKjo903+O55Jkn2+RtzHtvNez+yI49HAASvznhe9sZyjaSHTau9" crossorigin="anonymous" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+        <script src="https://unpkg.com/@rive-app/canvas@1.0.102" defer></script>
         <script type="text/javascript">
             (function() {
                 emailjs.init({
@@ -238,26 +238,36 @@
 
         .hero-container {
             position: relative;
-            background: url("/assets/images/hero.png") center/cover no-repeat;
-            background-position: 50% 40%;
-            min-height: calc(100vh - var(--nav-height));
+            min-height: calc(100svh - 6.2625rem);
             display: flex;
-            place-items: center;
-            display: flex;
-            padding-bottom: 4rem;
+            align-items: center;
             justify-content: center;
+            overflow: hidden;
+            padding-bottom: 4rem;
+        }
+
+        .hero-container img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 40%;
+            z-index: 0;
         }
 
         .hero-container::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0,0,0,0.4);
+            z-index: 1;
         }
 
         .hero-text-parent {
             color: white;
-            z-index: 10;
+            position: relative;
+            z-index: 2;
             max-width: 78.25rem;
             padding: 0 2rem;
             width: 100%;
@@ -819,6 +829,10 @@
         }
 
         @media (max-width: 62.5rem) {
+            .hero-container {
+                min-height: calc(100svh - 5.375rem);
+            }
+
             .hamburger {
                 display: flex;
             }
@@ -892,11 +906,13 @@
             }
         }
 
-        @media (max-width: 52rem) {
-            .hero-container {
-                background-position: 100% 40%;
+        @media (max-width: 57rem) {
+            .hero-container img {
+                object-position: 100% 40%;
             }
+        }
 
+        @media (max-width: 52rem) {
             .footer-columns {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -965,248 +981,252 @@
                 </div>
             </div>
         </nav>
-    </body>
-    <main>
-        <div class="hero-container">
-            <div class="hero-text-parent">
-                <div>
-                    <h1>Optical Intelligence for Your Warehouse</h1>
-                    <h3>Real-time computer vision driving warehouse efficiency by preventing errors before they leave the floor.</h3>
-                    <a class="demo-button" href="#contact-us">Get a Demo&nbsp&nbsp&nbsp></a>
-                    <a class="dashboard-button" href="#meet-hapte">Learn More&nbsp&nbsp&nbsp></a>
-                </div>
-            </div>
-        </div>
-        <div class="reimagination-section">
-            <section>
-                <h1>Reimagining Warehouse Visibility</h1>
-                <p>Warehouse performance is defined on the floor: every pick, every move, every decision. HaptE provides continuous visibility into floor activity, detecting errors in real time, and enabling immediate operational improvements without disrupting existing workflows.</p>
-                <a href="#meet-hapte">Learn More&nbsp&nbsp&nbsp></a>
-            </section>
-            <video
-            class="visibility-video"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="none"
-            >
-            <source data-src="/assets/videos/visibility.mp4" type="video/mp4">
-            </video>
-
-        </div>
-        <div class="problem-section">
-            <h1>The Execution Gap</h1>
-            <div class="three-column-problem">
-                <div>
-                    <h3><strong class="special-strong">1-3%</strong><br> average error rate</h3>
-                    <p>That “small” error rate quietly drains revenue through:</p>
-                    <ul>
-                        <li>Chargebacks</li>
-                        <li>Reships</li>
-                        <li>Refunds</li>
-                        <li>Lost customers</li>
-                        <li>Broken SLAs</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3><strong class="special-strong">50-70%</strong> of warehouse OpEx is labor</h3>
-                    <p>Yet most operations still depend on:</p>
-                    <ul>
-                        <li>Manual scans</li>
-                        <li>Human memory</li>
-                        <li>Paper or legacy workflows</li>
-                    </ul>
-                    <p>Which means you're paying premium labor costs <strong>without premium control.</strong></p>
-                </div>
-                <div>
-                    <h3><strong class="special-strong">&lt;10%</strong> of warehouses are automated</h3>
-                    <p>Despite billions spent on software, the warehouse floor remains a black box:</p>
-                    <ul>
-                        <li>No real-time proof of execution</li>
-                        <li>No objective view of errors</li>
-                        <li>No clear path to continuous improvement</li>
-                    </ul>
-                    <p>You can't optimize what you can't see; <strong>today's warehouse tech is blind to what <em>actually happens</em> on the floor.</strong></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="competition-section">
-            <div class="competition-left">
-                <h1>The tools you're using were never built for the warehouse floor</h1>
-                <p>Most warehouse technology was designed to manage <strong>systems</strong>, not <strong>execution</strong>. It tracks what <em>should</em> happen, but not what <em>actually does</em> happen. And that gap is where millions of dollars leak out of your operation.</p>
-                <a href="#meet-hapte">The HaptE Difference&nbsp&nbsp&nbsp></a>
-            </div>
-            <div class="competition-right">
-                <div>
-                    <section>
-                        <img src="/assets/images/moneybag.png" alt="Money bag image">
-                    </section>
-                    <section>
-                        <h3>Expensive & Slow to Deliver Value</h3>
-                        <hr>
-                        <p>Traditional systems demand heavy upfront investment, long deployments, and months before any real ROI appears.</p>
-                    </section>
-                </div>
-                <div>
-                    <section>
-                        <img src="/assets/images/lock.png" alt="Lock image">
-                    </section>
-                    <section>
-                        <h3>Narrow Task Coverage</h3>
-                        <hr>
-                        <p>Most solutions focus on planning and reporting — not the physical tasks that actually determine accuracy and speed.</p>
-                    </section>
-                </div>
-                <div>
-                    <section>
-                        <img src="/assets/images/cancel.png" alt="Cancellation image">
-                    </section>
-                    <section>
-                        <h3>Fundamentally Limited</h3>
-                        <hr>
-                        <p>No current platform truly gets what happens at the moment of pick, place, and pack. That's the most expensive blind spot in the entire warehouse.</p>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <div id="meet-hapte" class="solution-section">
-            <h1>Meet HaptE</h1>
-            <h3>See. Understand. Improve.</h3>
-            <p>HaptE's plug-and-play AI hardware mounts directly onto any forklift or mobile equipment, instantly transforming everyday warehouse movement into a real-time, intelligent optical system.</p>
-            <section>
-                <div>
-                    <img src="/assets/images/error_detection.png" alt="Error detection image">
-                    <h3>Real-Time Error Detection</h3>
-                    <p>Detect and correct errors instantly — before the order leaves the floor.</p>
-                </div>
-                <div>
-                    <img src="/assets/images/plug_and_play.png" alt="Plug and play image">
-                    <h3>Plug-and-Play Deployment</h3>
-                    <p>Instantly installs to any material handling equipment.</p>
-                </div>
-                <div>
-                    <img src="/assets/images/traceability.png" alt="Traceability image">
-                    <h3>Complete Execution Traceability</h3>
-                    <p>HaptE records video of exactly who touched what, when, and how for every order.</p>
-                </div>
-            </section>
-        </div>
-        <div class="dashboard-section">
-            <h1>See Your Warehouse in Real Time</h1>
-            <img src="/assets/images/dashboard.png" alt="Dashboard image">
-        </div>
-        <div class="our-team-section" id="our-team">
-            <h1>Our Team</h1>
-            <div class="profile-row">
-                <section>
-                    <img src="/assets/images/trevor.png" alt="Image of Trevor Abbott">
+        <main>
+            <div class="hero-container">
+                <img
+                    src="/assets/images/hero.webp"
+                    alt=""
+                    fetchpriority="high"
+                    decoding="async"
+                />
+                <div class="hero-text-parent">
                     <div>
-                        <h2>Trevor Abbott</h2>
-                        <h3>CEO</h3>
-                        <p>NASA Artemis Award '24 Winner</p>
+                        <h1>Optical Intelligence for Your Warehouse</h1>
+                        <h3>Real-time computer vision driving warehouse efficiency by preventing errors before they leave the floor.</h3>
+                        <a class="demo-button" href="#contact-us">Get a Demo&nbsp&nbsp&nbsp></a>
+                        <a class="dashboard-button" href="#meet-hapte">Learn More&nbsp&nbsp&nbsp></a>
                     </div>
-                </section>
+                </div>
+            </div>
+            <div class="reimagination-section">
                 <section>
-                    <img src="/assets/images/victoria.png" alt="Image of Victoria Israel">
+                    <h1>Reimagining Warehouse Visibility</h1>
+                    <p>Warehouse performance is defined on the floor: every pick, every move, every decision. HaptE provides continuous visibility into floor activity, detecting errors in real time, and enabling immediate operational improvements without disrupting existing workflows.</p>
+                    <a href="#meet-hapte">Learn More&nbsp&nbsp&nbsp></a>
+                </section>
+                <video
+                class="visibility-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="none"
+                >
+                <source data-src="/assets/videos/visibility.mp4" type="video/mp4">
+                </video>
+
+            </div>
+            <div class="problem-section">
+                <h1>The Execution Gap</h1>
+                <div class="three-column-problem">
                     <div>
-                        <h2>Victoria Israel</h2>
-                        <h3>COO</h3>
-                        <p>TOM Global Innovation Challenge Winner</p>
+                        <h3><strong class="special-strong">1-3%</strong><br> average error rate</h3>
+                        <p>That “small” error rate quietly drains revenue through:</p>
+                        <ul>
+                            <li>Chargebacks</li>
+                            <li>Reships</li>
+                            <li>Refunds</li>
+                            <li>Lost customers</li>
+                            <li>Broken SLAs</li>
+                        </ul>
                     </div>
-                </section>
-                <section>
-                    <img src="/assets/images/ben.png" alt="Image of Ben Wyant">
                     <div>
-                        <h2>Ben Wyant</h2>
-                        <h3>Chief Engineer</h3>
-                        <p>Graduate student, Northwestern University</p>
+                        <h3><strong class="special-strong">50-70%</strong> of warehouse OpEx is labor</h3>
+                        <p>Yet most operations still depend on:</p>
+                        <ul>
+                            <li>Manual scans</li>
+                            <li>Human memory</li>
+                            <li>Paper or legacy workflows</li>
+                        </ul>
+                        <p>Which means you're paying premium labor costs <strong>without premium control.</strong></p>
+                    </div>
+                    <div>
+                        <h3><strong class="special-strong">&lt;10%</strong> of warehouses are automated</h3>
+                        <p>Despite billions spent on software, the warehouse floor remains a black box:</p>
+                        <ul>
+                            <li>No real-time proof of execution</li>
+                            <li>No objective view of errors</li>
+                            <li>No clear path to continuous improvement</li>
+                        </ul>
+                        <p>You can't optimize what you can't see; <strong>today's warehouse tech is blind to what <em>actually happens</em> on the floor.</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="competition-section">
+                <div class="competition-left">
+                    <h1>The tools you're using were never built for the warehouse floor</h1>
+                    <p>Most warehouse technology was designed to manage <strong>systems</strong>, not <strong>execution</strong>. It tracks what <em>should</em> happen, but not what <em>actually does</em> happen. And that gap is where millions of dollars leak out of your operation.</p>
+                    <a href="#meet-hapte">The HaptE Difference&nbsp&nbsp&nbsp></a>
+                </div>
+                <div class="competition-right">
+                    <div>
+                        <section>
+                            <img src="/assets/images/moneybag.png" alt="Money bag image" loading="lazy" decoding="async">
+                        </section>
+                        <section>
+                            <h3>Expensive & Slow to Deliver Value</h3>
+                            <hr>
+                            <p>Traditional systems demand heavy upfront investment, long deployments, and months before any real ROI appears.</p>
+                        </section>
+                    </div>
+                    <div>
+                        <section>
+                            <img src="/assets/images/lock.png" alt="Lock image" loading="lazy" decoding="async">
+                        </section>
+                        <section>
+                            <h3>Narrow Task Coverage</h3>
+                            <hr>
+                            <p>Most solutions focus on planning and reporting — not the physical tasks that actually determine accuracy and speed.</p>
+                        </section>
+                    </div>
+                    <div>
+                        <section>
+                            <img src="/assets/images/cancel.png" alt="Cancellation image" loading="lazy" decoding="async">
+                        </section>
+                        <section>
+                            <h3>Fundamentally Limited</h3>
+                            <hr>
+                            <p>No current platform truly gets what happens at the moment of pick, place, and pack. That's the most expensive blind spot in the entire warehouse.</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div id="meet-hapte" class="solution-section">
+                <h1>Meet HaptE</h1>
+                <h3>See. Understand. Improve.</h3>
+                <p>HaptE's plug-and-play AI hardware mounts directly onto any forklift or mobile equipment, instantly transforming everyday warehouse movement into a real-time, intelligent optical system.</p>
+                <section>
+                    <div>
+                        <img src="/assets/images/error_detection.png" alt="Error detection image" loading="lazy" decoding="async">
+                        <h3>Real-Time Error Detection</h3>
+                        <p>Detect and correct errors instantly — before the order leaves the floor.</p>
+                    </div>
+                    <div>
+                        <img src="/assets/images/plug_and_play.png" alt="Plug and play image" loading="lazy" decoding="async">
+                        <h3>Plug-and-Play Deployment</h3>
+                        <p>Instantly installs to any material handling equipment.</p>
+                    </div>
+                    <div>
+                        <img src="/assets/images/traceability.png" alt="Traceability image" loading="lazy" decoding="async">
+                        <h3>Complete Execution Traceability</h3>
+                        <p>HaptE records video of exactly who touched what, when, and how for every order.</p>
                     </div>
                 </section>
             </div>
-        </div>
-        <div class="faq-section" id="faqs">
-            <div class="faq-left">
-                <h1 style="font-size: 3rem; margin: 0; margin-bottom: 1rem;">HaptE FAQs</h1>
-                <p style="font-size: 1.5rem;">Don't see your question on here?</p>
-                <a href="#contact-us">Contact Us&nbsp&nbsp&nbsp></a>
+            <div class="dashboard-section">
+                <h1>See Your Warehouse in Real Time</h1>
+                <img src="/assets/images/dashboard.png" alt="Dashboard image" loading="lazy" decoding="async">
             </div>
-            <div class="faq-right">
-                <div class="faq-item">
-                    <div>
-                        <span class="faq-number">01</span>
-                        <h3>How does HaptE integrate into existing workflows?</h3>
-                        <span class="faq-toggle"></span>
-                    </div>
-                    <p>We are able to seamlessly integrate with WMS and ERP APIs.</p>
-                    <hr>
-                </div>
-                <div class="faq-item">
-                    <div>
-                        <span class="faq-number">02</span>
-                        <h3>How does the operator use the device?</h3>
-                        <span class="faq-toggle"></span>
-                    </div>
-                    <p>Once the HaptE technology is installed on your forklift, simply turn it on at the beginning of the work day and turn it off at the end of the shift. HaptE does the rest for you.</p>
-                    <hr>
-                </div>
-                <div class="faq-item">
-                    <div>
-                        <span class="faq-number">03</span>
-                        <h3>What if my workflows are completely manual?</h3>
-                        <span class="faq-toggle"></span>
-                    </div>
-                    <p>As long as you have material handling equipment, HaptE can integrate into your operation. No complex software, automation, or training required.</p>
-                    <hr>
+            <div class="our-team-section" id="our-team">
+                <h1>Our Team</h1>
+                <div class="profile-row">
+                    <section>
+                        <img src="/assets/images/trevor.png" alt="Image of Trevor Abbott" loading="lazy" decoding="async">
+                        <div>
+                            <h2>Trevor Abbott</h2>
+                            <h3>CEO</h3>
+                            <p>NASA Artemis Award '24 Winner</p>
+                        </div>
+                    </section>
+                    <section>
+                        <img src="/assets/images/victoria.png" alt="Image of Victoria Israel" loading="lazy" decoding="async">
+                        <div>
+                            <h2>Victoria Israel</h2>
+                            <h3>COO</h3>
+                            <p>TOM Global Innovation Challenge Winner</p>
+                        </div>
+                    </section>
+                    <section>
+                        <img src="/assets/images/ben.png" alt="Image of Ben Wyant" loading="lazy" decoding="async">
+                        <div>
+                            <h2>Ben Wyant</h2>
+                            <h3>Chief Engineer</h3>
+                            <p>Graduate student, Northwestern University</p>
+                        </div>
+                    </section>
                 </div>
             </div>
-        </div>
-        <div class="contact-us-section" id="contact-us">
-            <h1>Contact Us</h1>
-            <form id="contact-form" class="contact-form">
-                <input type="text" placeholder="Name" name="name" required/>
-                <input type="email" placeholder="Business email" name="email" required/>
-                <textarea rows="4" placeholder="Message" name="message" required></textarea>
-                <button type="submit">
-                    <span>Send</span>
-                </button>
-            </form>
-        </div>
-    </main>
-    <footer class="footer">
-        <hr class="footer-divider">
-
-        <div class="footer-inner">
-            <div class="footer-columns">
-                <div class="footer-col">
-                    <h6>HAPTE</h6>
-                    <p>Optical intelligence for your warehouse.</p>
+            <div class="faq-section" id="faqs">
+                <div class="faq-left">
+                    <h1 style="font-size: 3rem; margin: 0; margin-bottom: 1rem;">HaptE FAQs</h1>
+                    <p style="font-size: 1.5rem;">Don't see your question on here?</p>
+                    <a href="#contact-us">Contact Us&nbsp&nbsp&nbsp></a>
                 </div>
-
-                <div class="footer-col">
-                    <h6>OUR COMPANY</h6>
-                    <a href="#meet-hapte">Our Product</a><br>
-                    <a href="#our-team">Our Team</a><br>
-                </div>
-
-                <div class="footer-col">
-                    <h6>HELP &amp; SUPPORT</h6>
-                    <a href="#faqs">FAQs</a><br>
-                    <a href="#contact-us">Contact Us</a>
-                </div>
-
-                <div class="footer-col">
-                    <h6>PRIVACY &amp; TERMS</h6>
-                    <a href="/privacy-policy">Privacy Policy</a><br>
-                    <a href="/terms-of-service">Terms of Service</a>
+                <div class="faq-right">
+                    <div class="faq-item">
+                        <div>
+                            <span class="faq-number">01</span>
+                            <h3>How does HaptE integrate into existing workflows?</h3>
+                            <span class="faq-toggle"></span>
+                        </div>
+                        <p>We are able to seamlessly integrate with WMS and ERP APIs.</p>
+                        <hr>
+                    </div>
+                    <div class="faq-item">
+                        <div>
+                            <span class="faq-number">02</span>
+                            <h3>How does the operator use the device?</h3>
+                            <span class="faq-toggle"></span>
+                        </div>
+                        <p>Once the HaptE technology is installed on your forklift, simply turn it on at the beginning of the work day and turn it off at the end of the shift. HaptE does the rest for you.</p>
+                        <hr>
+                    </div>
+                    <div class="faq-item">
+                        <div>
+                            <span class="faq-number">03</span>
+                            <h3>What if my workflows are completely manual?</h3>
+                            <span class="faq-toggle"></span>
+                        </div>
+                        <p>As long as you have material handling equipment, HaptE can integrate into your operation. No complex software, automation, or training required.</p>
+                        <hr>
+                    </div>
                 </div>
             </div>
-        </div>
-        <p class="footer-copy">© 2025 HaptE</p>
-    </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
+            <div class="contact-us-section" id="contact-us">
+                <h1>Contact Us</h1>
+                <form id="contact-form" class="contact-form">
+                    <input type="text" placeholder="Name" name="name" required/>
+                    <input type="email" placeholder="Business email" name="email" required/>
+                    <textarea rows="4" placeholder="Message" name="message" required></textarea>
+                    <button type="submit">
+                        <span>Send</span>
+                    </button>
+                </form>
+            </div>
+        </main>
+        <footer class="footer">
+            <hr class="footer-divider">
+
+            <div class="footer-inner">
+                <div class="footer-columns">
+                    <div class="footer-col">
+                        <h6>HAPTE</h6>
+                        <p>Optical intelligence for your warehouse.</p>
+                    </div>
+
+                    <div class="footer-col">
+                        <h6>OUR COMPANY</h6>
+                        <a href="#meet-hapte">Our Product</a><br>
+                        <a href="#our-team">Our Team</a><br>
+                    </div>
+
+                    <div class="footer-col">
+                        <h6>HELP &amp; SUPPORT</h6>
+                        <a href="#faqs">FAQs</a><br>
+                        <a href="#contact-us">Contact Us</a>
+                    </div>
+
+                    <div class="footer-col">
+                        <h6>PRIVACY &amp; TERMS</h6>
+                        <a href="/privacy-policy">Privacy Policy</a><br>
+                        <a href="/terms-of-service">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-copy">© 2025 HaptE</p>
+        </footer>
+        <script>
             function toggleMenu() {
                 const hamburger = document.querySelector('.hamburger');
                 const menu = document.querySelector('.nav-links');
@@ -1256,17 +1276,6 @@
             });
 
             observer.observe(video);
-
-            function setNavHeight() {
-                const nav = document.querySelector(".navbar");
-                document.documentElement.style.setProperty(
-                    "--nav-height",
-                    `${nav.offsetHeight}px`
-                );
-            }
-
-            window.addEventListener("load", setNavHeight);
-            window.addEventListener("resize", setNavHeight);
-        });
-    </script>
+        </script>
+    </body>
 </html>
