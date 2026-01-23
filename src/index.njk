@@ -33,18 +33,16 @@
             }
         </script>
         <!-- Scripts -->
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha384-i61gTtaoovXtAbKjo903+O55Jkn2+RtzHtvNez+yI49HAASvznhe9sZyjaSHTau9" crossorigin="anonymous" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-        <script src="https://unpkg.com/@rive-app/canvas@1.0.102" defer></script>
         <script type="text/javascript">
             (function() {
                 emailjs.init({
                     publicKey: "N72UvyzZNSaIPfgFs",
                 });
             })();
-        </script>
-        <script type="text/javascript">
+        
             window.onload = function() {
                 const form = document.getElementById("contact-form");
                 const button = form.querySelector("button");
@@ -740,16 +738,32 @@
             place-items: center;
         }
 
+        .contact-form label {
+            font-family: "Space Grotesk", sans-serif;
+            text-align: left;
+            max-width: 38rem;
+            width: 100%;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-form section, .contact-form section div {
+            display: flex;
+            flex-direction: column;
+            max-width: 40rem;
+            width: 100%;
+        }
+
+        .contact-two-rows {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
         .contact-form input, .contact-form textarea {
             font-family: "Space Grotesk", sans-serif;
             font-size: 1rem;
-            border-radius: 1rem;
-            text-align: center;
             padding: 1rem;
             border: none;
-            max-width: 40rem;
-            margin: 0.75rem 0;
-            width: 100%;
+            margin-bottom: 1.75rem;
             color: var(--primary);
         }
 
@@ -761,7 +775,7 @@
             background-color: var(--secondary);
             border: none;
             display: block;
-            margin: 0.75rem auto 0;
+            margin: 0 auto;
             border-radius: 1rem;
             color: var(--tertiary);
             padding: 0.8rem 1.25rem;
@@ -1194,9 +1208,20 @@
             <div class="contact-us-section" id="contact-us">
                 <h1>Contact Us</h1>
                 <form id="contact-form" class="contact-form">
-                    <input type="text" placeholder="Name" name="name" required/>
-                    <input type="email" placeholder="Business email" name="email" required/>
-                    <textarea rows="4" placeholder="Message" name="message" required></textarea>
+                    <section class="contact-two-rows">
+                        <div>
+                            <label>Name</label>
+                            <input type="text" placeholder="Enter your name" name="name" required/>
+                        </div>
+                        <div>
+                            <label>Business email</label>
+                            <input type="email" placeholder="Enter your business email" name="email" required/>
+                        </div>
+                    </section>
+                    <section>
+                        <label>Optional message</label>
+                        <textarea rows="4" placeholder="Message here..." name="message"></textarea>
+                    </section>
                     <button type="submit">
                         <span>Send</span>
                     </button>
